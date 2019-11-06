@@ -1,5 +1,5 @@
 # erzeugt Dienstag, 05. November 2019 16:20 (C) 2019 von Leander Jedamus
-# modifiziert Mittwoch, 06. November 2019 08:39 von Leander Jedamus
+# modifiziert Mittwoch, 06. November 2019 08:40 von Leander Jedamus
 # modifiziert Dienstag, 05. November 2019 20:21 von Leander Jedamus
 
 TMPDIR		    = /tmp
@@ -31,6 +31,7 @@ check_host:
 		    grep " version" $(TMPFILE) | awk -F' ' '{ print "TMPCC_VERSION=$(machtype)-" $(PARAM1) "-" $(PARAM2) }' > $(TMPCC_VERSIONFILE)
 		    #echo "$(CC_VERSION) $(TMPCC_VERSION) $(EQUAL)"
 		    make check2
+		    make all
 
 check2:
 ifeq ($(CC_VERSION),$(TMPCC_VERSION))
@@ -43,6 +44,9 @@ endif
 
 clean:
 		    $(RM) $(CLEAN)
+
+all:
+		    @echo "done"
 
 # vim:ai sw=2
 
