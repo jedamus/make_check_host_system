@@ -1,5 +1,5 @@
 # erzeugt Dienstag, 05. November 2019 16:20 (C) 2019 von Leander Jedamus
-# modifiziert Mittwoch, 06. November 2019 08:43 von Leander Jedamus
+# modifiziert Mittwoch, 06. November 2019 11:03 von Leander Jedamus
 # modifiziert Dienstag, 05. November 2019 20:21 von Leander Jedamus
 
 TMPDIR		    = /tmp
@@ -7,7 +7,7 @@ TMPFILE		    = $(TMPDIR)/Makefile.cc.tmp
 TMPFILE2	    = $(TMPDIR)/Makefile.diff.tmp
 TMPFILE3	    = $(TMPDIR)/Makefile.grep.tmp
 TMPCC_VERSIONFILE   = $(TMPDIR)/Makefile.cc.version
-CC_VERSIONFILE	    = ./cc_version
+CC_VERSIONFILE	    = .cc_version
 
 ifeq ($(CC_VERSIONFILE),$(wildcard $(CC_VERSIONFILE)))
 include $(CC_VERSIONFILE)
