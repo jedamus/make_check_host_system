@@ -1,5 +1,5 @@
 # erzeugt Dienstag, 05. November 2019 16:20 (C) 2019 von Leander Jedamus
-# modifiziert Mittwoch, 06. November 2019 08:40 von Leander Jedamus
+# modifiziert Mittwoch, 06. November 2019 08:43 von Leander Jedamus
 # modifiziert Dienstag, 05. November 2019 20:21 von Leander Jedamus
 
 TMPDIR		    = /tmp
@@ -29,17 +29,13 @@ check_host:
 		    cc -v 2> $(TMPFILE)
 		    #grep " version" $(TMPFILE) | sed 's/.* \([0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*\) .*/TMPCC_VERSION=\1/g' > $(TMPCC_VERSIONFILE)
 		    grep " version" $(TMPFILE) | awk -F' ' '{ print "TMPCC_VERSION=$(machtype)-" $(PARAM1) "-" $(PARAM2) }' > $(TMPCC_VERSIONFILE)
-		    #echo "$(CC_VERSION) $(TMPCC_VERSION) $(EQUAL)"
 		    make check2
 		    make all
 
 check2:
-ifeq ($(CC_VERSION),$(TMPCC_VERSION))
-		    #echo "equal" 
-else
-		    #echo "not equal"
-		    make clean
+ifneq ($(CC_VERSION),$(TMPCC_VERSION))
 		    cat $(TMPCC_VERSIONFILE) | sed 's/TMP//' > $(CC_VERSIONFILE)
+		    make clean
 endif
 
 clean:
